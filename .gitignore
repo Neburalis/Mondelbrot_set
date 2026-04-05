@@ -1,0 +1,9 @@
+.idea/*
+.venv/*
+
+perf.data
+perf.script
+frame_times.png
+frame_times.csv
+
+main
