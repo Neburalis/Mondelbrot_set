@@ -14,12 +14,11 @@ static void handle_input(float *origin_x, float *origin_y, float step)
     if (IsKeyDown(KEY_UP))    *origin_y -= step;
 }
 
-static Color compute_pixel_color(int n, int MaxN, float X, float Y)
+static Color compute_pixel_color(int n, int MaxN, float r2)
 {
     if (n == MaxN) {
         return (Color){0, 0, 0, 255};
     }
-    float r2 = X*X + Y*Y;
     float log2X = (r2 > 0.0f) ?
         (float)n + 1.0f - log2f(log2f(r2) * 0.5f) : (float)n;
     float t = log2X / (float)MaxN;
@@ -48,26 +47,25 @@ static void compute_mandelbrot(Color *pixels, int ScreenWidth, int ScreenHeight,
             float X[wide], Y[wide];
             for (int i = 0; i < wide; ++i) X[i] = P0x[i];
             for (int i = 0; i < wide; ++i) Y[i] = P0y[i];
+            float EscR2[wide] = {0};
             int n, alive = wide, N[wide] = {0}, step[wide] = {1, 1, 1, 1, 1, 1, 1, 1};
             for (n = 0; n < MaxN; ++n) {
                 float X2[wide]; for (int i = 0; i < wide; ++i) X2[i] = X[i] * X[i];
                 float Y2[wide]; for (int i = 0; i < wide; ++i) Y2[i] = Y[i] * Y[i];
                 float XY[wide]; for (int i = 0; i < wide; ++i) XY[i] = X[i] * Y[i];
                 for (int i = 0; i < wide; ++i)
-                    if (X2[i] + Y2[i] >= rMAX) {
+                    if (step[i] && X2[i] + Y2[i] >= rMAX) {
+                        EscR2[i] = X2[i] + Y2[i];
                         step[i] = 0;
                         alive -= 1;
                     };
                 if (!alive) break;
-                // if (X2 + Y2 >= rMAX) break;
                 for (int i = 0; i < wide; ++i) X[i] = X2[i] - Y2[i] + P0x[i];
                 for (int i = 0; i < wide; ++i) Y[i] = XY[i] + XY[i] + P0y[i];
-                // X = X2 - Y2 + P0x;
-                // Y = XY + XY + P0y;
                 for (int i = 0; i < wide; ++i) N[i] += step[i];
             }
             for (int i = 0; i < wide; ++i)
-                pixels[ix + i + ScreenWidth * iy] = compute_pixel_color(N[i], MaxN, X[i], Y[i]);
+                pixels[ix + i + ScreenWidth * iy] = compute_pixel_color(N[i], MaxN, EscR2[i]);
             for (int i = 0; i < wide; ++i) P0x[i] += scale * wide;
         }
     }
