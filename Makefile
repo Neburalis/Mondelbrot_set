@@ -1,5 +1,5 @@
 CC            = gcc
-CFLAGS        = -std=c11 -O3 -fno-omit-frame-pointer -g
+CFLAGS        = -std=c11 -O3 -mavx2 -fno-omit-frame-pointer -g
 LDFLAGS       = -lraylib -lm
 
 TARGET        = main
