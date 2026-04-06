@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include <immintrin.h>
 
 static bool disable_window;
 
-static void handle_input(float *origin_x, float *origin_y, float step)
+static void handle_input(double *origin_x, double *origin_y, double step)
 {
     if (IsKeyDown(KEY_RIGHT)) *origin_x += step;
     if (IsKeyDown(KEY_LEFT))  *origin_x -= step;
@@ -14,14 +13,14 @@ static void handle_input(float *origin_x, float *origin_y, float step)
     if (IsKeyDown(KEY_UP))    *origin_y -= step;
 }
 
-static Color compute_pixel_color(int n, int MaxN, float r2)
+static Color compute_pixel_color(int n, int MaxN, double X, double Y)
 {
     if (n == MaxN) {
         return (Color){0, 0, 0, 255};
     }
-    float log2X = (r2 > 0.0f) ?
-        (float)n + 1.0f - log2f(log2f(r2) * 0.5f) : (float)n;
-    float t = log2X / (float)MaxN;
+    double log2X = (X*X + Y*Y > 0) ?
+        (double)n + 1.0 - log2(log2(X*X + Y*Y) * 0.5) : (double)n;
+    float t = (float)(log2X / MaxN);
     float h = t * 6.28318f * 3.0f;
     float r = 0.5f + 0.5f * cosf(h);
     float g = 0.5f + 0.5f * cosf(h + 2.094f);
@@ -35,65 +34,31 @@ static Color compute_pixel_color(int n, int MaxN, float r2)
     };
 }
 
-static void compute_mandelbrot(Color *pixels, int ScreenWidth, int ScreenHeight,
-                                int MaxN, float origin_x, float origin_y, float scale)
+static void compute_mandelbrot(Color *pixels, short ScreenWidth, short ScreenHeight,
+                                short MaxN, double origin_x, double origin_y, double scale)
 {
-    const float rMAX = 10.0f * 10.0f;
-
-    __m256 offsets   = _mm256_set_ps(7,6,5,4,3,2,1,0);
-    __m256 scale_vec = _mm256_set1_ps(scale);
-    __m256 sqr_rad   = _mm256_set1_ps(rMAX);
-    __m256 all_ones  = _mm256_castsi256_ps(_mm256_set1_epi32(-1));
-
-    for (int iy = 0; iy < ScreenHeight; ++iy) {
-        __m256 p0y = _mm256_set1_ps(origin_y + iy * scale);
-
-        float px_base = origin_x;
-        for (int ix = 0; ix < ScreenWidth; ix += 8, px_base += scale * 8.0f) {
-            __m256 p0x = _mm256_add_ps(_mm256_set1_ps(px_base),
-                                       _mm256_mul_ps(offsets, scale_vec));
-
-            __m256 x_vec     = p0x;
-            __m256 y_vec     = p0y;
-            __m256i n_vec    = _mm256_setzero_si256();
-            __m256 escr2_vec = _mm256_setzero_ps();
-            __m256 prev_alive = all_ones;
-
-            int mask = 0xFF;
-            for (int n = 0; n < MaxN && mask; ++n) {
-                __m256 x2 = _mm256_mul_ps(x_vec, x_vec);
-                __m256 y2 = _mm256_mul_ps(y_vec, y_vec);
-                __m256 xy = _mm256_mul_ps(x_vec, y_vec);
-                __m256 r2 = _mm256_add_ps(x2, y2);
-
-                __m256 alive = _mm256_cmp_ps(r2, sqr_rad, _CMP_LT_OQ);
-
-                /* capture r2 for pixels that escape this iteration */
-                __m256 newly_escaped = _mm256_andnot_ps(alive, prev_alive);
-                escr2_vec = _mm256_or_ps(escr2_vec, _mm256_and_ps(newly_escaped, r2));
-                prev_alive = alive;
-
-                /* increment iteration count for still-alive pixels */
-                n_vec = _mm256_sub_epi32(n_vec, _mm256_castps_si256(alive));
-
-                mask = _mm256_movemask_ps(alive);
-
-                x_vec = _mm256_add_ps(_mm256_sub_ps(x2, y2), p0x);
-                y_vec = _mm256_add_ps(_mm256_add_ps(xy, xy), p0y);
+    const double rMAX = 10 * 10;
+    for (short iy = 0; iy < ScreenHeight; ++iy) {
+        double P0x = origin_x, P0y = origin_y + iy * scale;
+        for (short ix = 0; ix < ScreenWidth; ++ix, P0x += scale) {
+            double X = P0x, Y = P0y;
+            short n;
+            for (n = 0; n < MaxN; ++n) {
+                double X2 = X * X;
+                double Y2 = Y * Y;
+                double XY = X * Y;
+                if (X2 + Y2 >= rMAX) break;
+                X = X2 - Y2 + P0x;
+                Y = XY + XY + P0y;
             }
-
-            int   *N    = (int   *)&n_vec;
-            float *escr = (float *)&escr2_vec;
-
-            for (int i = 0; i < 8; ++i)
-                pixels[ix + i + ScreenWidth * iy] = compute_pixel_color(N[i], MaxN, escr[i]);
+            pixels[ix + ScreenWidth * iy] = compute_pixel_color(n, MaxN, X, Y);
         }
     }
 }
 
 __attribute__((noinline))
 static void render_frame(Texture2D texture, Color *pixels, int frame_n,
-                          float origin_x, float origin_y)
+                          double origin_x, double origin_y)
 {
     if (!disable_window) {
         UpdateTexture(texture, pixels);
@@ -114,9 +79,9 @@ static void render_frame(Texture2D texture, Color *pixels, int frame_n,
 
 int main(void)
 {
-    const int ScreenWidth  = 800;
-    const int ScreenHeight = 450;
-    const int MaxN         = 256;
+    const short ScreenWidth  = 800;
+    const short ScreenHeight = 450;
+    const short MaxN         = 256;
 
     InitWindow(ScreenWidth, ScreenHeight, "raylib example - basic window");
 
@@ -131,10 +96,10 @@ int main(void)
     };
     Texture2D texture = LoadTextureFromImage(img);
 
-    float origin_x = -2.4f, origin_y = -0.55f, scale = 1.8f / 800.0f;
+    double origin_x = -2.4, origin_y = -0.55, scale = 1.8 / 800;
 
     const char *env = getenv("MAX_FRAMES");
-    int max_frames = env ? atoi(env) : 0;
+    int max_frames = env ? atoi(env) : 0;   /* 0 = unlimited */
 
     disable_window = getenv("DISABLE_WINDOW") ? true : false;
 
