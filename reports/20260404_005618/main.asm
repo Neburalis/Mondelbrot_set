@@ -5,14 +5,14 @@
 Disassembly of section .init:
 
 0000000000001000 <_init>:
-    1000:	f3 0f 1e fa          	endbr64 
+    1000:	f3 0f 1e fa          	endbr64
     1004:	48 83 ec 08          	sub    $0x8,%rsp
     1008:	48 8b 05 c9 2f 00 00 	mov    0x2fc9(%rip),%rax        # 3fd8 <__gmon_start__@Base>
     100f:	48 85 c0             	test   %rax,%rax
     1012:	74 02                	je     1016 <_init+0x16>
     1014:	ff d0                	call   *%rax
     1016:	48 83 c4 08          	add    $0x8,%rsp
-    101a:	c3                   	ret    
+    101a:	c3                   	ret
 
 Disassembly of section .plt:
 
@@ -20,95 +20,95 @@ Disassembly of section .plt:
     1020:	ff 35 ea 2e 00 00    	push   0x2eea(%rip)        # 3f10 <_GLOBAL_OFFSET_TABLE_+0x8>
     1026:	f2 ff 25 eb 2e 00 00 	bnd jmp *0x2eeb(%rip)        # 3f18 <_GLOBAL_OFFSET_TABLE_+0x10>
     102d:	0f 1f 00             	nopl   (%rax)
-    1030:	f3 0f 1e fa          	endbr64 
+    1030:	f3 0f 1e fa          	endbr64
     1034:	68 00 00 00 00       	push   $0x0
     1039:	f2 e9 e1 ff ff ff    	bnd jmp 1020 <_init+0x20>
     103f:	90                   	nop
-    1040:	f3 0f 1e fa          	endbr64 
+    1040:	f3 0f 1e fa          	endbr64
     1044:	68 01 00 00 00       	push   $0x1
     1049:	f2 e9 d1 ff ff ff    	bnd jmp 1020 <_init+0x20>
     104f:	90                   	nop
-    1050:	f3 0f 1e fa          	endbr64 
+    1050:	f3 0f 1e fa          	endbr64
     1054:	68 02 00 00 00       	push   $0x2
     1059:	f2 e9 c1 ff ff ff    	bnd jmp 1020 <_init+0x20>
     105f:	90                   	nop
-    1060:	f3 0f 1e fa          	endbr64 
+    1060:	f3 0f 1e fa          	endbr64
     1064:	68 03 00 00 00       	push   $0x3
     1069:	f2 e9 b1 ff ff ff    	bnd jmp 1020 <_init+0x20>
     106f:	90                   	nop
-    1070:	f3 0f 1e fa          	endbr64 
+    1070:	f3 0f 1e fa          	endbr64
     1074:	68 04 00 00 00       	push   $0x4
     1079:	f2 e9 a1 ff ff ff    	bnd jmp 1020 <_init+0x20>
     107f:	90                   	nop
-    1080:	f3 0f 1e fa          	endbr64 
+    1080:	f3 0f 1e fa          	endbr64
     1084:	68 05 00 00 00       	push   $0x5
     1089:	f2 e9 91 ff ff ff    	bnd jmp 1020 <_init+0x20>
     108f:	90                   	nop
-    1090:	f3 0f 1e fa          	endbr64 
+    1090:	f3 0f 1e fa          	endbr64
     1094:	68 06 00 00 00       	push   $0x6
     1099:	f2 e9 81 ff ff ff    	bnd jmp 1020 <_init+0x20>
     109f:	90                   	nop
-    10a0:	f3 0f 1e fa          	endbr64 
+    10a0:	f3 0f 1e fa          	endbr64
     10a4:	68 07 00 00 00       	push   $0x7
     10a9:	f2 e9 71 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10af:	90                   	nop
-    10b0:	f3 0f 1e fa          	endbr64 
+    10b0:	f3 0f 1e fa          	endbr64
     10b4:	68 08 00 00 00       	push   $0x8
     10b9:	f2 e9 61 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10bf:	90                   	nop
-    10c0:	f3 0f 1e fa          	endbr64 
+    10c0:	f3 0f 1e fa          	endbr64
     10c4:	68 09 00 00 00       	push   $0x9
     10c9:	f2 e9 51 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10cf:	90                   	nop
-    10d0:	f3 0f 1e fa          	endbr64 
+    10d0:	f3 0f 1e fa          	endbr64
     10d4:	68 0a 00 00 00       	push   $0xa
     10d9:	f2 e9 41 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10df:	90                   	nop
-    10e0:	f3 0f 1e fa          	endbr64 
+    10e0:	f3 0f 1e fa          	endbr64
     10e4:	68 0b 00 00 00       	push   $0xb
     10e9:	f2 e9 31 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10ef:	90                   	nop
-    10f0:	f3 0f 1e fa          	endbr64 
+    10f0:	f3 0f 1e fa          	endbr64
     10f4:	68 0c 00 00 00       	push   $0xc
     10f9:	f2 e9 21 ff ff ff    	bnd jmp 1020 <_init+0x20>
     10ff:	90                   	nop
-    1100:	f3 0f 1e fa          	endbr64 
+    1100:	f3 0f 1e fa          	endbr64
     1104:	68 0d 00 00 00       	push   $0xd
     1109:	f2 e9 11 ff ff ff    	bnd jmp 1020 <_init+0x20>
     110f:	90                   	nop
-    1110:	f3 0f 1e fa          	endbr64 
+    1110:	f3 0f 1e fa          	endbr64
     1114:	68 0e 00 00 00       	push   $0xe
     1119:	f2 e9 01 ff ff ff    	bnd jmp 1020 <_init+0x20>
     111f:	90                   	nop
-    1120:	f3 0f 1e fa          	endbr64 
+    1120:	f3 0f 1e fa          	endbr64
     1124:	68 0f 00 00 00       	push   $0xf
     1129:	f2 e9 f1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     112f:	90                   	nop
-    1130:	f3 0f 1e fa          	endbr64 
+    1130:	f3 0f 1e fa          	endbr64
     1134:	68 10 00 00 00       	push   $0x10
     1139:	f2 e9 e1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     113f:	90                   	nop
-    1140:	f3 0f 1e fa          	endbr64 
+    1140:	f3 0f 1e fa          	endbr64
     1144:	68 11 00 00 00       	push   $0x11
     1149:	f2 e9 d1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     114f:	90                   	nop
-    1150:	f3 0f 1e fa          	endbr64 
+    1150:	f3 0f 1e fa          	endbr64
     1154:	68 12 00 00 00       	push   $0x12
     1159:	f2 e9 c1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     115f:	90                   	nop
-    1160:	f3 0f 1e fa          	endbr64 
+    1160:	f3 0f 1e fa          	endbr64
     1164:	68 13 00 00 00       	push   $0x13
     1169:	f2 e9 b1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     116f:	90                   	nop
-    1170:	f3 0f 1e fa          	endbr64 
+    1170:	f3 0f 1e fa          	endbr64
     1174:	68 14 00 00 00       	push   $0x14
     1179:	f2 e9 a1 fe ff ff    	bnd jmp 1020 <_init+0x20>
     117f:	90                   	nop
-    1180:	f3 0f 1e fa          	endbr64 
+    1180:	f3 0f 1e fa          	endbr64
     1184:	68 15 00 00 00       	push   $0x15
     1189:	f2 e9 91 fe ff ff    	bnd jmp 1020 <_init+0x20>
     118f:	90                   	nop
-    1190:	f3 0f 1e fa          	endbr64 
+    1190:	f3 0f 1e fa          	endbr64
     1194:	68 16 00 00 00       	push   $0x16
     1199:	f2 e9 81 fe ff ff    	bnd jmp 1020 <_init+0x20>
     119f:	90                   	nop
@@ -116,131 +116,131 @@ Disassembly of section .plt:
 Disassembly of section .plt.got:
 
 00000000000011a0 <__cxa_finalize@plt>:
-    11a0:	f3 0f 1e fa          	endbr64 
+    11a0:	f3 0f 1e fa          	endbr64
     11a4:	f2 ff 25 45 2e 00 00 	bnd jmp *0x2e45(%rip)        # 3ff0 <__cxa_finalize@GLIBC_2.2.5>
     11ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 Disassembly of section .plt.sec:
 
 00000000000011b0 <DrawText@plt>:
-    11b0:	f3 0f 1e fa          	endbr64 
+    11b0:	f3 0f 1e fa          	endbr64
     11b4:	f2 ff 25 65 2d 00 00 	bnd jmp *0x2d65(%rip)        # 3f20 <DrawText@Base>
     11bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000011c0 <EndDrawing@plt>:
-    11c0:	f3 0f 1e fa          	endbr64 
+    11c0:	f3 0f 1e fa          	endbr64
     11c4:	f2 ff 25 5d 2d 00 00 	bnd jmp *0x2d5d(%rip)        # 3f28 <EndDrawing@Base>
     11cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000011d0 <BeginDrawing@plt>:
-    11d0:	f3 0f 1e fa          	endbr64 
+    11d0:	f3 0f 1e fa          	endbr64
     11d4:	f2 ff 25 55 2d 00 00 	bnd jmp *0x2d55(%rip)        # 3f30 <BeginDrawing@Base>
     11db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000011e0 <CloseWindow@plt>:
-    11e0:	f3 0f 1e fa          	endbr64 
+    11e0:	f3 0f 1e fa          	endbr64
     11e4:	f2 ff 25 4d 2d 00 00 	bnd jmp *0x2d4d(%rip)        # 3f38 <CloseWindow@Base>
     11eb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000011f0 <MemAlloc@plt>:
-    11f0:	f3 0f 1e fa          	endbr64 
+    11f0:	f3 0f 1e fa          	endbr64
     11f4:	f2 ff 25 45 2d 00 00 	bnd jmp *0x2d45(%rip)        # 3f40 <MemAlloc@Base>
     11fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001200 <UnloadTexture@plt>:
-    1200:	f3 0f 1e fa          	endbr64 
+    1200:	f3 0f 1e fa          	endbr64
     1204:	f2 ff 25 3d 2d 00 00 	bnd jmp *0x2d3d(%rip)        # 3f48 <UnloadTexture@Base>
     120b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001210 <DrawFPS@plt>:
-    1210:	f3 0f 1e fa          	endbr64 
+    1210:	f3 0f 1e fa          	endbr64
     1214:	f2 ff 25 35 2d 00 00 	bnd jmp *0x2d35(%rip)        # 3f50 <DrawFPS@Base>
     121b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001220 <InitWindow@plt>:
-    1220:	f3 0f 1e fa          	endbr64 
+    1220:	f3 0f 1e fa          	endbr64
     1224:	f2 ff 25 2d 2d 00 00 	bnd jmp *0x2d2d(%rip)        # 3f58 <InitWindow@Base>
     122b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001230 <UpdateTexture@plt>:
-    1230:	f3 0f 1e fa          	endbr64 
+    1230:	f3 0f 1e fa          	endbr64
     1234:	f2 ff 25 25 2d 00 00 	bnd jmp *0x2d25(%rip)        # 3f60 <UpdateTexture@Base>
     123b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001240 <ClearBackground@plt>:
-    1240:	f3 0f 1e fa          	endbr64 
+    1240:	f3 0f 1e fa          	endbr64
     1244:	f2 ff 25 1d 2d 00 00 	bnd jmp *0x2d1d(%rip)        # 3f68 <ClearBackground@Base>
     124b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001250 <WindowShouldClose@plt>:
-    1250:	f3 0f 1e fa          	endbr64 
+    1250:	f3 0f 1e fa          	endbr64
     1254:	f2 ff 25 15 2d 00 00 	bnd jmp *0x2d15(%rip)        # 3f70 <WindowShouldClose@Base>
     125b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001260 <expf@plt>:
-    1260:	f3 0f 1e fa          	endbr64 
+    1260:	f3 0f 1e fa          	endbr64
     1264:	f2 ff 25 0d 2d 00 00 	bnd jmp *0x2d0d(%rip)        # 3f78 <expf@GLIBC_2.27>
     126b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001270 <LoadTextureFromImage@plt>:
-    1270:	f3 0f 1e fa          	endbr64 
+    1270:	f3 0f 1e fa          	endbr64
     1274:	f2 ff 25 05 2d 00 00 	bnd jmp *0x2d05(%rip)        # 3f80 <LoadTextureFromImage@Base>
     127b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001280 <DrawTexture@plt>:
-    1280:	f3 0f 1e fa          	endbr64 
+    1280:	f3 0f 1e fa          	endbr64
     1284:	f2 ff 25 fd 2c 00 00 	bnd jmp *0x2cfd(%rip)        # 3f88 <DrawTexture@Base>
     128b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001290 <strtol@plt>:
-    1290:	f3 0f 1e fa          	endbr64 
+    1290:	f3 0f 1e fa          	endbr64
     1294:	f2 ff 25 f5 2c 00 00 	bnd jmp *0x2cf5(%rip)        # 3f90 <strtol@GLIBC_2.2.5>
     129b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012a0 <MemFree@plt>:
-    12a0:	f3 0f 1e fa          	endbr64 
+    12a0:	f3 0f 1e fa          	endbr64
     12a4:	f2 ff 25 ed 2c 00 00 	bnd jmp *0x2ced(%rip)        # 3f98 <MemFree@Base>
     12ab:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012b0 <getenv@plt>:
-    12b0:	f3 0f 1e fa          	endbr64 
+    12b0:	f3 0f 1e fa          	endbr64
     12b4:	f2 ff 25 e5 2c 00 00 	bnd jmp *0x2ce5(%rip)        # 3fa0 <getenv@GLIBC_2.2.5>
     12bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012c0 <__stack_chk_fail@plt>:
-    12c0:	f3 0f 1e fa          	endbr64 
+    12c0:	f3 0f 1e fa          	endbr64
     12c4:	f2 ff 25 dd 2c 00 00 	bnd jmp *0x2cdd(%rip)        # 3fa8 <__stack_chk_fail@GLIBC_2.4>
     12cb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012d0 <cosf@plt>:
-    12d0:	f3 0f 1e fa          	endbr64 
+    12d0:	f3 0f 1e fa          	endbr64
     12d4:	f2 ff 25 d5 2c 00 00 	bnd jmp *0x2cd5(%rip)        # 3fb0 <cosf@GLIBC_2.2.5>
     12db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012e0 <log2@plt>:
-    12e0:	f3 0f 1e fa          	endbr64 
+    12e0:	f3 0f 1e fa          	endbr64
     12e4:	f2 ff 25 cd 2c 00 00 	bnd jmp *0x2ccd(%rip)        # 3fb8 <log2@GLIBC_2.29>
     12eb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 00000000000012f0 <__snprintf_chk@plt>:
-    12f0:	f3 0f 1e fa          	endbr64 
+    12f0:	f3 0f 1e fa          	endbr64
     12f4:	f2 ff 25 c5 2c 00 00 	bnd jmp *0x2cc5(%rip)        # 3fc0 <__snprintf_chk@GLIBC_2.3.4>
     12fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001300 <IsKeyDown@plt>:
-    1300:	f3 0f 1e fa          	endbr64 
+    1300:	f3 0f 1e fa          	endbr64
     1304:	f2 ff 25 bd 2c 00 00 	bnd jmp *0x2cbd(%rip)        # 3fc8 <IsKeyDown@Base>
     130b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 0000000000001310 <GetFrameTime@plt>:
-    1310:	f3 0f 1e fa          	endbr64 
+    1310:	f3 0f 1e fa          	endbr64
     1314:	f2 ff 25 b5 2c 00 00 	bnd jmp *0x2cb5(%rip)        # 3fd0 <GetFrameTime@Base>
     131b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
 
 Disassembly of section .text:
 
 0000000000001320 <_start>:
-    1320:	f3 0f 1e fa          	endbr64 
+    1320:	f3 0f 1e fa          	endbr64
     1324:	31 ed                	xor    %ebp,%ebp
     1326:	49 89 d1             	mov    %rdx,%r9
     1329:	5e                   	pop    %rsi
@@ -252,9 +252,9 @@ Disassembly of section .text:
     1336:	31 c9                	xor    %ecx,%ecx
     1338:	48 8d 3d c3 05 00 00 	lea    0x5c3(%rip),%rdi        # 1902 <main>
     133f:	ff 15 b3 2c 00 00    	call   *0x2cb3(%rip)        # 3ff8 <__libc_start_main@GLIBC_2.34>
-    1345:	f4                   	hlt    
+    1345:	f4                   	hlt
     1346:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-    134d:	00 00 00 
+    134d:	00 00 00
 
 0000000000001350 <deregister_tm_clones>:
     1350:	48 8d 3d b9 2c 00 00 	lea    0x2cb9(%rip),%rdi        # 4010 <__TMC_END__>
@@ -266,7 +266,7 @@ Disassembly of section .text:
     136d:	74 09                	je     1378 <deregister_tm_clones+0x28>
     136f:	ff e0                	jmp    *%rax
     1371:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-    1378:	c3                   	ret    
+    1378:	c3                   	ret
     1379:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
 
 0000000000001380 <register_tm_clones>:
@@ -284,16 +284,16 @@ Disassembly of section .text:
     13ae:	74 08                	je     13b8 <register_tm_clones+0x38>
     13b0:	ff e0                	jmp    *%rax
     13b2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-    13b8:	c3                   	ret    
+    13b8:	c3                   	ret
     13b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
 
 00000000000013c0 <__do_global_dtors_aux>:
-    13c0:	f3 0f 1e fa          	endbr64 
+    13c0:	f3 0f 1e fa          	endbr64
     13c4:	80 3d 45 2c 00 00 00 	cmpb   $0x0,0x2c45(%rip)        # 4010 <__TMC_END__>
     13cb:	75 2b                	jne    13f8 <__do_global_dtors_aux+0x38>
     13cd:	55                   	push   %rbp
     13ce:	48 83 3d 1a 2c 00 00 	cmpq   $0x0,0x2c1a(%rip)        # 3ff0 <__cxa_finalize@GLIBC_2.2.5>
-    13d5:	00 
+    13d5:	00
     13d6:	48 89 e5             	mov    %rsp,%rbp
     13d9:	74 0c                	je     13e7 <__do_global_dtors_aux+0x27>
     13db:	48 8b 3d 26 2c 00 00 	mov    0x2c26(%rip),%rdi        # 4008 <__dso_handle>
@@ -301,13 +301,13 @@ Disassembly of section .text:
     13e7:	e8 64 ff ff ff       	call   1350 <deregister_tm_clones>
     13ec:	c6 05 1d 2c 00 00 01 	movb   $0x1,0x2c1d(%rip)        # 4010 <__TMC_END__>
     13f3:	5d                   	pop    %rbp
-    13f4:	c3                   	ret    
+    13f4:	c3                   	ret
     13f5:	0f 1f 00             	nopl   (%rax)
-    13f8:	c3                   	ret    
+    13f8:	c3                   	ret
     13f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
 
 0000000000001400 <frame_dummy>:
-    1400:	f3 0f 1e fa          	endbr64 
+    1400:	f3 0f 1e fa          	endbr64
     1404:	e9 77 ff ff ff       	jmp    1380 <register_tm_clones>
 
 0000000000001409 <handle_input>:
@@ -355,7 +355,7 @@ Disassembly of section .text:
     14a2:	41 5c                	pop    %r12
     14a4:	41 5e                	pop    %r14
     14a6:	5d                   	pop    %rbp
-    14a7:	c3                   	ret    
+    14a7:	c3                   	ret
 
 00000000000014a8 <compute_pixel_color>:
     14a8:	39 f7                	cmp    %esi,%edi
@@ -369,7 +369,7 @@ Disassembly of section .text:
     14bf:	f2 0f 59 c9          	mulsd  %xmm1,%xmm1
     14c3:	f2 0f 58 c1          	addsd  %xmm1,%xmm0
     14c7:	66 0f 2f 05 f9 0b 00 	comisd 0xbf9(%rip),%xmm0        # 20c8 <_IO_stdin_used+0xc8>
-    14ce:	00 
+    14ce:	00
     14cf:	0f 87 40 01 00 00    	ja     1615 <compute_pixel_color+0x16d>
     14d5:	66 0f ef ed          	pxor   %xmm5,%xmm5
     14d9:	f2 0f 2a ef          	cvtsi2sd %edi,%xmm5
@@ -380,56 +380,56 @@ Disassembly of section .text:
     14ef:	f2 0f 5e c1          	divsd  %xmm1,%xmm0
     14f3:	f2 0f 5a c0          	cvtsd2ss %xmm0,%xmm0
     14f7:	f3 0f 59 05 99 0b 00 	mulss  0xb99(%rip),%xmm0        # 2098 <_IO_stdin_used+0x98>
-    14fe:	00 
+    14fe:	00
     14ff:	0f 28 e0             	movaps %xmm0,%xmm4
     1502:	f3 0f 59 25 92 0b 00 	mulss  0xb92(%rip),%xmm4        # 209c <_IO_stdin_used+0x9c>
-    1509:	00 
+    1509:	00
     150a:	f3 0f 11 65 e8       	movss  %xmm4,-0x18(%rbp)
     150f:	0f 28 c4             	movaps %xmm4,%xmm0
     1512:	e8 b9 fd ff ff       	call   12d0 <cosf@plt>
     1517:	f3 0f 59 05 81 0b 00 	mulss  0xb81(%rip),%xmm0        # 20a0 <_IO_stdin_used+0xa0>
-    151e:	00 
+    151e:	00
     151f:	0f 28 e8             	movaps %xmm0,%xmm5
     1522:	f3 0f 58 2d 76 0b 00 	addss  0xb76(%rip),%xmm5        # 20a0 <_IO_stdin_used+0xa0>
-    1529:	00 
+    1529:	00
     152a:	f3 0f 11 6d dc       	movss  %xmm5,-0x24(%rbp)
     152f:	f3 0f 10 5d e8       	movss  -0x18(%rbp),%xmm3
     1534:	f3 0f 58 1d 68 0b 00 	addss  0xb68(%rip),%xmm3        # 20a4 <_IO_stdin_used+0xa4>
-    153b:	00 
+    153b:	00
     153c:	0f 28 c3             	movaps %xmm3,%xmm0
     153f:	e8 8c fd ff ff       	call   12d0 <cosf@plt>
     1544:	f3 0f 59 05 54 0b 00 	mulss  0xb54(%rip),%xmm0        # 20a0 <_IO_stdin_used+0xa0>
-    154b:	00 
+    154b:	00
     154c:	0f 28 f0             	movaps %xmm0,%xmm6
     154f:	f3 0f 58 35 49 0b 00 	addss  0xb49(%rip),%xmm6        # 20a0 <_IO_stdin_used+0xa0>
-    1556:	00 
+    1556:	00
     1557:	f3 0f 11 75 d8       	movss  %xmm6,-0x28(%rbp)
     155c:	f3 0f 10 5d e8       	movss  -0x18(%rbp),%xmm3
     1561:	f3 0f 58 1d 3f 0b 00 	addss  0xb3f(%rip),%xmm3        # 20a8 <_IO_stdin_used+0xa8>
-    1568:	00 
+    1568:	00
     1569:	0f 28 c3             	movaps %xmm3,%xmm0
     156c:	e8 5f fd ff ff       	call   12d0 <cosf@plt>
     1571:	f3 0f 59 05 27 0b 00 	mulss  0xb27(%rip),%xmm0        # 20a0 <_IO_stdin_used+0xa0>
-    1578:	00 
+    1578:	00
     1579:	0f 28 f8             	movaps %xmm0,%xmm7
     157c:	f3 0f 58 3d 1c 0b 00 	addss  0xb1c(%rip),%xmm7        # 20a0 <_IO_stdin_used+0xa0>
-    1583:	00 
+    1583:	00
     1584:	f3 0f 11 7d e8       	movss  %xmm7,-0x18(%rbp)
     1589:	f2 0f 10 45 e0       	movsd  -0x20(%rbp),%xmm0
     158e:	66 0f 57 05 2a 0b 00 	xorpd  0xb2a(%rip),%xmm0        # 20c0 <_IO_stdin_used+0xc0>
-    1595:	00 
+    1595:	00
     1596:	f2 0f 59 05 ca 0a 00 	mulsd  0xaca(%rip),%xmm0        # 2068 <_IO_stdin_used+0x68>
-    159d:	00 
+    159d:	00
     159e:	f2 0f 5a c0          	cvtsd2ss %xmm0,%xmm0
     15a2:	e8 b9 fc ff ff       	call   1260 <expf@plt>
     15a7:	0f 28 c8             	movaps %xmm0,%xmm1
     15aa:	f3 0f 10 05 fa 0a 00 	movss  0xafa(%rip),%xmm0        # 20ac <_IO_stdin_used+0xac>
-    15b1:	00 
+    15b1:	00
     15b2:	f3 0f 5c c1          	subss  %xmm1,%xmm0
     15b6:	f3 0f 10 4d dc       	movss  -0x24(%rbp),%xmm1
     15bb:	f3 0f 59 c8          	mulss  %xmm0,%xmm1
     15bf:	f3 0f 10 15 e9 0a 00 	movss  0xae9(%rip),%xmm2        # 20b0 <_IO_stdin_used+0xb0>
-    15c6:	00 
+    15c6:	00
     15c7:	f3 0f 59 ca          	mulss  %xmm2,%xmm1
     15cb:	f3 0f 2c f1          	cvttss2si %xmm1,%esi
     15cf:	f3 0f 10 4d d8       	movss  -0x28(%rbp),%xmm1
@@ -448,18 +448,18 @@ Disassembly of section .text:
     1602:	09 d0                	or     %edx,%eax
     1604:	0d 00 00 00 ff       	or     $0xff000000,%eax
     1609:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
-    160d:	c9                   	leave  
-    160e:	c3                   	ret    
+    160d:	c9                   	leave
+    160e:	c3                   	ret
     160f:	b8 00 00 00 ff       	mov    $0xff000000,%eax
-    1614:	c3                   	ret    
+    1614:	c3                   	ret
     1615:	66 0f ef c9          	pxor   %xmm1,%xmm1
     1619:	f2 0f 2a cf          	cvtsi2sd %edi,%xmm1
     161d:	f2 0f 58 0d 33 0a 00 	addsd  0xa33(%rip),%xmm1        # 2058 <_IO_stdin_used+0x58>
-    1624:	00 
+    1624:	00
     1625:	f2 0f 11 4d e8       	movsd  %xmm1,-0x18(%rbp)
     162a:	e8 b1 fc ff ff       	call   12e0 <log2@plt>
     162f:	f2 0f 59 05 29 0a 00 	mulsd  0xa29(%rip),%xmm0        # 2060 <_IO_stdin_used+0x60>
-    1636:	00 
+    1636:	00
     1637:	e8 a4 fc ff ff       	call   12e0 <log2@plt>
     163c:	f2 0f 10 4d e8       	movsd  -0x18(%rbp),%xmm1
     1641:	f2 0f 5c c8          	subsd  %xmm0,%xmm1
@@ -502,14 +502,14 @@ Disassembly of section .text:
     16c1:	66 0f 28 e8          	movapd %xmm0,%xmm5
     16c5:	f2 0f 58 ec          	addsd  %xmm4,%xmm5
     16c9:	66 0f 2f 2d 9f 09 00 	comisd 0x99f(%rip),%xmm5        # 2070 <_IO_stdin_used+0x70>
-    16d0:	00 
+    16d0:	00
     16d1:	72 b4                	jb     1687 <compute_mandelbrot+0x38>
     16d3:	41 0f bf d5          	movswl %r13w,%edx
     16d7:	41 0f bf c7          	movswl %r15w,%eax
     16db:	0f af d0             	imul   %eax,%edx
     16de:	41 0f bf c4          	movswl %r12w,%eax
     16e2:	01 d0                	add    %edx,%eax
-    16e4:	48 98                	cltq   
+    16e4:	48 98                	cltq
     16e6:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
     16ea:	4c 8d 34 81          	lea    (%rcx,%rax,4),%r14
     16ee:	0f bf f3             	movswl %bx,%esi
@@ -547,7 +547,7 @@ Disassembly of section .text:
     176e:	41 5e                	pop    %r14
     1770:	41 5f                	pop    %r15
     1772:	5d                   	pop    %rbp
-    1773:	c3                   	ret    
+    1773:	c3                   	ret
 
 0000000000001774 <render_frame>:
     1774:	55                   	push   %rbp
@@ -561,7 +561,7 @@ Disassembly of section .text:
     1788:	66 49 0f 7e c4       	movq   %xmm0,%r12
     178d:	66 49 0f 7e cd       	movq   %xmm1,%r13
     1792:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
-    1799:	00 00 
+    1799:	00 00
     179b:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
     179f:	31 c0                	xor    %eax,%eax
     17a1:	f3 0f 6f 55 10       	movdqu 0x10(%rbp),%xmm2
@@ -612,7 +612,7 @@ Disassembly of section .text:
     186f:	e8 3c f9 ff ff       	call   11b0 <DrawText@plt>
     1874:	e8 97 fa ff ff       	call   1310 <GetFrameTime@plt>
     1879:	f3 0f 59 05 33 08 00 	mulss  0x833(%rip),%xmm0        # 20b4 <_IO_stdin_used+0xb4>
-    1880:	00 
+    1880:	00
     1881:	f3 0f 5a c0          	cvtss2sd %xmm0,%xmm0
     1885:	4c 8d 65 90          	lea    -0x70(%rbp),%r12
     1889:	41 89 d9             	mov    %ebx,%r9d
@@ -636,7 +636,7 @@ Disassembly of section .text:
     18dc:	e8 df f8 ff ff       	call   11c0 <EndDrawing@plt>
     18e1:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
     18e5:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
-    18ec:	00 00 
+    18ec:	00 00
     18ee:	75 0d                	jne    18fd <render_frame+0x189>
     18f0:	48 8d 65 e0          	lea    -0x20(%rbp),%rsp
     18f4:	5b                   	pop    %rbx
@@ -644,11 +644,11 @@ Disassembly of section .text:
     18f7:	41 5d                	pop    %r13
     18f9:	41 5e                	pop    %r14
     18fb:	5d                   	pop    %rbp
-    18fc:	c3                   	ret    
+    18fc:	c3                   	ret
     18fd:	e8 be f9 ff ff       	call   12c0 <__stack_chk_fail@plt>
 
 0000000000001902 <main>:
-    1902:	f3 0f 1e fa          	endbr64 
+    1902:	f3 0f 1e fa          	endbr64
     1906:	55                   	push   %rbp
     1907:	48 89 e5             	mov    %rsp,%rbp
     190a:	41 55                	push   %r13
@@ -656,7 +656,7 @@ Disassembly of section .text:
     190e:	53                   	push   %rbx
     190f:	48 83 ec 58          	sub    $0x58,%rsp
     1913:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
-    191a:	00 00 
+    191a:	00 00
     191c:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
     1920:	31 c0                	xor    %eax,%eax
     1922:	48 8d 15 03 07 00 00 	lea    0x703(%rip),%rdx        # 202c <_IO_stdin_used+0x2c>
@@ -698,10 +698,10 @@ Disassembly of section .text:
     19c8:	48 8d 75 98          	lea    -0x68(%rbp),%rsi
     19cc:	48 8d 7d 90          	lea    -0x70(%rbp),%rdi
     19d0:	f2 0f 10 05 b0 06 00 	movsd  0x6b0(%rip),%xmm0        # 2088 <_IO_stdin_used+0x88>
-    19d7:	00 
+    19d7:	00
     19d8:	e8 2c fa ff ff       	call   1409 <handle_input>
     19dd:	f2 0f 10 15 ab 06 00 	movsd  0x6ab(%rip),%xmm2        # 2090 <_IO_stdin_used+0x90>
-    19e4:	00 
+    19e4:	00
     19e5:	f2 0f 10 4d 98       	movsd  -0x68(%rbp),%xmm1
     19ea:	f2 0f 10 45 90       	movsd  -0x70(%rbp),%xmm0
     19ef:	b9 00 01 00 00       	mov    $0x100,%ecx
@@ -742,7 +742,7 @@ Disassembly of section .text:
     1a77:	e8 64 f7 ff ff       	call   11e0 <CloseWindow@plt>
     1a7c:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
     1a80:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
-    1a87:	00 00 
+    1a87:	00 00
     1a89:	75 10                	jne    1a9b <main+0x199>
     1a8b:	b8 00 00 00 00       	mov    $0x0,%eax
     1a90:	48 8d 65 e8          	lea    -0x18(%rbp),%rsp
@@ -750,13 +750,13 @@ Disassembly of section .text:
     1a95:	41 5c                	pop    %r12
     1a97:	41 5d                	pop    %r13
     1a99:	5d                   	pop    %rbp
-    1a9a:	c3                   	ret    
+    1a9a:	c3                   	ret
     1a9b:	e8 20 f8 ff ff       	call   12c0 <__stack_chk_fail@plt>
 
 Disassembly of section .fini:
 
 0000000000001aa0 <_fini>:
-    1aa0:	f3 0f 1e fa          	endbr64 
+    1aa0:	f3 0f 1e fa          	endbr64
     1aa4:	48 83 ec 08          	sub    $0x8,%rsp
     1aa8:	48 83 c4 08          	add    $0x8,%rsp
-    1aac:	c3                   	ret    
+    1aac:	c3                   	ret

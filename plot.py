@@ -88,4 +88,13 @@ plt.tight_layout()
 out = pathlib.Path(path).with_suffix(".png")
 plt.savefig(out, dpi=150)
 print(f"Saved: {out}")
+
+stats_path = pathlib.Path(path).with_name("frame_stats.txt")
+with open(stats_path, "w") as f:
+    f.write(f"mean {mean:.2f} ms/ {1000.0 / mean:.1f} fps\n")
+    f.write(f"variance {variance:.3f} ms^2\n")
+    f.write(f"sigma {stdev:.3f} ms\n")
+    f.write(f"MAD {mad:.3f} ms\n")
+print(f"Saved: {stats_path}")
+
 plt.show()

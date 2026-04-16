@@ -1,4 +1,4 @@
-CC            = gcc
+CC            = clang
 CFLAGS        = -std=c11 -O3 -mavx2 -fno-omit-frame-pointer -g
 LDFLAGS       = -lraylib -lm
 
@@ -7,6 +7,7 @@ SRC           = main.c
 PROFILE_FRAMES ?= 1000
 
 PERF_DATA        = perf.data
+PERF_DATA_old    = perf.data.old
 PERF_FRAMES_DATA = perf_frames.data
 PROBE_EVENT_FILE = .probe_event
 FRAME_TIMES      = frame_times.csv
@@ -23,8 +24,8 @@ run: $(TARGET)
 	DISPLAY=:10.0 ./$(TARGET)
 
 clean:
-	rm -f $(TARGET) $(PERF_DATA) $(PERF_FRAMES_DATA) $(PROBE_EVENT_FILE) \
-	      perf.script $(FRAME_TIMES) frame_times.png
+	rm -f $(TARGET) $(PERF_DATA) $(PERF_DATA_old) $(PERF_FRAMES_DATA) \
+	      $(PROBE_EVENT_FILE) perf.script $(FRAME_TIMES) frame_times.png frame_stats.txt
 	-perf probe --del 'probe*:render_frame*' 2>/dev/null; true
 
 # --- combined: callstack + frame timing in one run ---
@@ -123,9 +124,13 @@ save_report:
 	 objdump -d ./$(TARGET) > "$$dir/main.asm" 2>/dev/null; \
 	 echo "  [ok] main.asm"; \
 	 echo "  [ok] main_info.txt"; \
-	 printf '# %s\n\nDate: %s\n\n## Description\n\n%s\n\n## Build\n\n- CC: `%s`\n- CFLAGS: `%s`\n- LDFLAGS: `%s`\n' \
-	        "$$msg" "$$(date)" "$$msg" \
-	        "$(CC)" "$(CFLAGS)" "$(LDFLAGS)" \
-	        > "$$dir/README.md"; \
+	 cp frame_stats.txt    "$$dir/" 2>/dev/null \
+	   && echo "  [ok] frame_stats.txt"    || echo "  [--] frame_stats.txt not found"; \
+	 { printf '# %s\n\nDate: %s\n\n## Description\n\n%s\n\n## Data\n\n' \
+	          "$$msg" "$$(date)" "$$msg"; \
+	   cat frame_stats.txt 2>/dev/null || printf 'no stats (run make plot first)\n'; \
+	   printf '\n## Build\n\n- CC: `%s`\n- CFLAGS: `%s`\n- LDFLAGS: `%s`\n' \
+	          "$(CC)" "$(CFLAGS)" "$(LDFLAGS)"; \
+	 } > "$$dir/README.md"; \
 	 echo "  [ok] README.md"; \
 	 echo "Report saved: $$dir"
