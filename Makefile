@@ -1,6 +1,6 @@
 CC            = clang
-CFLAGS        = -std=c11 -O3 -mavx2 -fno-omit-frame-pointer -g
-LDFLAGS       = -lraylib -lm
+CFLAGS        = -std=c11 -O3 -mavx2 -fno-omit-frame-pointer -g -I/opt/homebrew/Cellar/raylib/5.5/include/
+LDFLAGS       = -L/opt/homebrew/Cellar/raylib/5.5/lib/ -lraylib -lm
 
 TARGET        = main
 SRC           = main.c
