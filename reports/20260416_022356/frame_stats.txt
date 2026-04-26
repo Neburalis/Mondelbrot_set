@@ -1,4 +1,0 @@
-mean 25.33 ms/ 39.5 fps
-variance 1.492 ms^2
-sigma 1.221 ms
-MAD 0.787 ms
